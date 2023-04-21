@@ -86,7 +86,7 @@ const {getinfinite}=useBody()
         {
          (
           resturentdata?.map((ele, index) => (
-            <Link key={index}  to={`/reasturent/${ele?.data?.data?.id?ele?.data?.data?.id:ele?.data?.id}`} style={{textDecoration:"none",color:"black"}} >
+            <Link key={index}  to={`/reasturent/${ele?.data?.data?.id?ele?.data?.data?.id:ele?.data?.id}`} style={{textDecoration:"none",color:"black",height:"max-content"}} >
             <Resturentcard propele={ele}  ></Resturentcard>
             </Link>
           ))
