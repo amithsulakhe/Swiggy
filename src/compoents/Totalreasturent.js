@@ -26,7 +26,7 @@ const Totalreasturent = () => {
   return (
     <>
       <div className="total-res">
-        <h1 style={{ fontSize: "1.8rem", fontWeight: 600 }}>
+        <h1 >
           {sorts?.data?.cards[2]?.data?.data?.totalRestaurants
             ? sorts?.data?.cards[2]?.data?.data?.totalRestaurants
             : sorts?.data?.cards[0]?.data?.data?.totalRestaurants}{" "}

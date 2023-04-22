@@ -793,3 +793,14 @@
   width: 80%;
   margin: 1% auto;
 }
+.total-res h1{
+  font-size: 28px;
+  font-weight: 700;
+}
+@media screen and  (max-width:1300px) {
+.total-res h1{
+  font-size: 18px;
+  font-weight: 700;
+}
+  
+}
