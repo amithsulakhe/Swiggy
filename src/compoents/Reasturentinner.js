@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
-function Reasturentinner({ data, title }) {
+import { Usercontext } from "./Context.js";
+function Reasturentinner({ data, title,showbox,setshowbox }) {
   //  console.log(data,title);
+ const{cartitems,setcartitems}= useContext(Usercontext)
   const [datahide, setdatahide] = useState({
     display: "flex",
   });
@@ -15,6 +17,15 @@ function Reasturentinner({ data, title }) {
     setdatahide({ display: newDisplay });
     setbtnborder({ borderBottom: newBtnBorder });
   };
+  const additemtocart=(element)=>{
+    // console.log(element);
+    setcartitems(element)
+    if(element.addons){
+      setshowbox(!showbox)
+    }
+
+    console.log(cartitems);
+  }
   return (
     <>
       <div className="inner-items">
@@ -62,7 +73,7 @@ function Reasturentinner({ data, title }) {
                     src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/${ele.card.info.imageId}`}
                     alt=""
                   />
-                  <p>Add</p>
+                  <p onClick={()=>additemtocart(ele.card.info)}>Add <span style={{fontSize:"10px",color:"black",fontWeight:600}}>{ele.card.info.addons && "Customisable"}</span></p>
                 </button>
               </div>
             </div>

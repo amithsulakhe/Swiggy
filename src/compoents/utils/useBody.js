@@ -19,7 +19,7 @@ const {resturentdata,setresturentdata,sorts,setsorts,specialoffers,setspecialoff
       const json=await getlocationdata(user,typesort)
       if(typesort=="RELEVANCE"){
         setresturentdata(json.data.cards[2].data.data.cards);
-        console.log(json);
+        // console.log(json);
         setspecialoffers(json.data.cards[0].data.data.cards);
         setsorts(json)
         setfilters(json.data.filters[0].options)

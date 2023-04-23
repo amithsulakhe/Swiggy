@@ -13,6 +13,7 @@ import Context from "./src/compoents/Context";
 import Filters from "./src/compoents/Filters";
 import Overlay from "./src/compoents/Overlay";
 import Infiniteloop from "./src/compoents/Infiniteloop.js";
+import CartCustomisable from "./src/compoents/CartCustomisable";
 const App = () => {
   return (
     <div className="app">

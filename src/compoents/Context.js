@@ -5,7 +5,6 @@ const Context = ({children}) => {
     const [city, setcity] = useState()
     const [resturentdata, setresturentdata] = useState([]);
     const [specialoffers, setspecialoffers] = useState([]);
-
 const [displayfilter, setdisplayfilter] = useState("none")
 const [displayoverlay, setdisplayoverlay] = useState("none")
     const [displaylocation, setdisplaylocation] = useState({
@@ -24,9 +23,10 @@ const [user, setuser] = useState({
       lon:77.5945627
     }
 })
+const [cartitems, setcartitems] = useState({})
 
   return (
-    <Usercontext.Provider value={{specialoffers,setspecialoffers, sorts,setsorts,resturentdata,setresturentdata, displayoverlay,setdisplayoverlay, displayfilter,setdisplayfilter, city,setcity,displaylocation,setdisplaylocation,user,setuser,locationvalue,setlocationvalue,typesort,settypesort}}>
+    <Usercontext.Provider value={{ cartitems,setcartitems, specialoffers,setspecialoffers, sorts,setsorts,resturentdata,setresturentdata, displayoverlay,setdisplayoverlay, displayfilter,setdisplayfilter, city,setcity,displaylocation,setdisplaylocation,user,setuser,locationvalue,setlocationvalue,typesort,settypesort}}>
         {children}
     </Usercontext.Provider>
   )

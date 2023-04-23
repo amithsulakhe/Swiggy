@@ -4,10 +4,12 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { Usercontext } from "./Context.js";
 import { getparticulardata } from "../../Constants.js";
+import CartCustomisable from "./CartCustomisable.js";
 const Reasturentinnerfetch = () => {
   const { resid } = useParams();
   const {user,setdisplaylocation} = useContext(Usercontext);
   // console.log(user.coord.lon);
+  const [showbox, setshowbox] = useState(false)
 
   const [innerdata, setinnerdata] = useState([]);
   const [abouthotel, setabouthotel] = useState({});
@@ -68,15 +70,19 @@ const Reasturentinnerfetch = () => {
         {innerdata?.map((ele, index) => {
           return (
             ele.card.card.title && (
-              <Reasturentinner
+              <Reasturentinner showbox={showbox} setshowbox={setshowbox}
                 key={ele?.card?.card?.title}
                 title={ele?.card?.card?.title}
                 data={ele?.card?.card?.itemCards || ele?.card?.card?.categories}
               ></Reasturentinner>
+              
             )
+            
           );
         })}
       </div>
+     { showbox && <CartCustomisable setshowbox={setshowbox} />}
+
     </>
   );
 };
