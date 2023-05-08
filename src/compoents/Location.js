@@ -4,7 +4,7 @@ import { Usercontext } from "./Context";
 import Header from "./Header.js";
 import { Link, useParams } from "react-router-dom";
 function Location() {
-  const {setdisplayoverlay}=useContext(Usercontext)
+  const {setdisplayoverlay,displayoverlay}=useContext(Usercontext)
   const {
     displaylocation,
     setdisplaylocation,
@@ -51,20 +51,21 @@ function Location() {
       );
     setlocationvalue(city);
     setcity("");
-    setdisplayoverlay("none")
+    setdisplayoverlay(!displayoverlay)
     setdisplaylocation( { position:"absolute",
       right: "100%"});
   };
   const recenthandler = (ele) => {
     setlocationvalue(ele);
-    setdisplayoverlay("none")
+    setdisplayoverlay(!displayoverlay)
     setdisplaylocation({ position:"absolute",
       right: "100%"});
   };
   const handleremovelocation=()=>{
     setdisplaylocation({ position:"absolute",
           right: "100%"})
-          setdisplayoverlay("none")
+          setdisplayoverlay(!displayoverlay)
+
 
   }
   return (

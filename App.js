@@ -14,7 +14,14 @@ import Filters from "./src/compoents/Filters";
 import Overlay from "./src/compoents/Overlay";
 import Infiniteloop from "./src/compoents/Infiniteloop.js";
 import CartCustomisable from "./src/compoents/CartCustomisable";
+import { useEffect } from "react";
 const App = () => {
+  useEffect(() => {
+    alert("Use CORS extension in PC to see live website...");
+    if (confirm("Are you sure you want to navigate to Chrome CORS?")) {
+      window.location.href = "https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en";
+    }
+  }, []);
   return (
     <div className="app">
       <Context>

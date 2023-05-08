@@ -17,18 +17,19 @@ const {resturentdata,setresturentdata,sorts,setsorts,specialoffers,setspecialoff
     async function getdata() {
     setresturentdata([])
       const json=await getlocationdata(user,typesort)
+      // console.log(json);
       if(typesort=="RELEVANCE"){
-        setresturentdata(json.data.cards[2].data.data.cards);
+        setresturentdata(json?.data?.cards[2]?.data?.data?.cards);
         // console.log(json);
-        setspecialoffers(json.data.cards[0].data.data.cards);
+        setspecialoffers(json?.data?.cards[0]?.data?.data?.cards);
         setsorts(json)
-        setfilters(json.data.filters[0].options)
+        setfilters(json?.data?.filters[0]?.options)
         
       }
       else{
-        setresturentdata(json.data.cards[0].data.data.cards);
+        setresturentdata(json?.data?.cards[0]?.data?.data?.cards);
         setsorts(json)
-        setfilters(json.data.filters[0].options)
+        setfilters(json?.data?.filters[0]?.options)
       }
     }
     // useEffect(()=>{
@@ -49,6 +50,6 @@ const {resturentdata,setresturentdata,sorts,setsorts,specialoffers,setspecialoff
       // let json=await fetchoffsetdata(user,offsetvalue)
       // console.log(json);
     
-    return {resturentdata,specialoffers,sorts,setresturentdata,filters,getinfinite}
+    return {specialoffers,sorts,filters,getinfinite}
 }
 export default useBody;

@@ -907,6 +907,7 @@ margin: 0 auto;
 }
 .item-button-name button{
   width: 100%;
+  transition: 0.35s;
   cursor: pointer;
   border: initial;
   height: 40px;
@@ -937,4 +938,7 @@ margin: 0 auto;
 .item-names span{
   color: #7e808c;
   font-size: 14px;
+}
+.item-button-name button:hover{
+box-shadow: 0 0 5px #60b246;
 }

@@ -2,7 +2,11 @@ import React from 'react'
 
 const Error = () => {
   return (
-   <h1>Something went wrong</h1>
+   <div className="no-result">
+    <h1>
+      something went wrong
+    </h1>
+   </div>
   )
 }
 

@@ -6,6 +6,7 @@ export const getlocationdata=async (user,type)=>{
     // console.log(type);
     // console.log(user.cod);
     if(user.cod===200){
+        
         let data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lon}&sortBy=${type}&page_type=DESKTOP_WEB_LISTING`);
         let json = await data.json();
         return json
