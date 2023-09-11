@@ -1,9 +1,7 @@
 import React from 'react'
 import { img_cdn } from '../../Constant';
 const Resturentcard = ({propele}) => {
-    const {costForTwoString, name, cloudinaryImageId, cuisines, avgRating, slaString, aggregatedDiscountInfo} = propele.data.data
-    ? propele.data.data
-    : propele.data;
+    const {costForTwoString, name, cloudinaryImageId, cuisines, avgRating, slaString, aggregatedDiscountInfo} = propele.info
   
     let styles={
         backgroundColor: "#48c479",

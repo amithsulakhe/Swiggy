@@ -15,7 +15,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 const Body = () => {
   const {btnRight,setbtnright,count,setcount,btnstyleleft,setbtnstyleleft,btnstyleright, setbtnstyleright}=usecarsoel()
 const {resturentdata,specialoffers}=useContext(Usercontext)
-  // console.log(resturentdata);
+  console.log(resturentdata);
 // console.log(specialoffers);
 const  dummy=()=>{
   getinfinite()
