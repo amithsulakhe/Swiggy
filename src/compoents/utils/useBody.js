@@ -8,6 +8,7 @@ const {resturentdata,setresturentdata,sorts,setsorts,specialoffers,setspecialoff
 
     const [filters, setfilters] = useState([])
     const [offsetvalue, setoffsetvalue] = useState(15)
+    const [page,setPage]=useState(0)
     useEffect(() => {
       getdata();
     },[user,typesort]);
@@ -15,32 +16,49 @@ const {resturentdata,setresturentdata,sorts,setsorts,specialoffers,setspecialoff
 
 
     async function getdata() {
-    setresturentdata([])
-      const json=await getlocationdata(user,typesort)
-      // console.log(json);
-      if(typesort=="RELEVANCE"){
-        setresturentdata(json?.data?.cards[2]?.data?.data?.cards);
-        // console.log(json);
-        setspecialoffers(json?.data?.cards[0]?.data?.data?.cards);
-        setsorts(json)
-        setfilters(json?.data?.filters[0]?.options)
+    // setresturentdata([])
+      // const json=await getlocationdata(user,typesort)
+      // // console.log(json);
+      // if(typesort=="RELEVANCE"){
+      //   setresturentdata(json?.data?.cards[2]?.data?.data?.cards);
+      //   // console.log(json);
+      //   setspecialoffers(json?.data?.cards[0]?.data?.data?.cards);
+      //   setsorts(json)
+      //   setfilters(json?.data?.filters[0]?.options)
         
-      }
-      else{
-        setresturentdata(json?.data?.cards[0]?.data?.data?.cards);
-        setsorts(json)
-        setfilters(json?.data?.filters[0]?.options)
-      }
+      // }
+      // else{
+      //   setresturentdata(json?.data?.cards[0]?.data?.data?.cards);
+      //   setsorts(json)
+      //   setfilters(json?.data?.filters[0]?.options)
+      // }
+
+      try{
+        const ResData=await getlocationdata(page,"banglore")
+        if(page==0){
+          setresturentdata(ResData?.data)
+          // setFilterRestaurant(ResData?.data)
+          // setTotalOpenRestaurant(ResData?.total)
+        }else{
+          setresturentdata(prev=>[...prev,...ResData?.data])
+          // setFilterRestaurant(prev=>[...prev,...ResData?.data])
+        }
+      }catch(err){
+        console.log(err);
+      } 
     }
     // useEffect(()=>{
     //   getinfinite()
     // },[offsetvalue])
    async function getinfinite(){
     
-      let json =await fetchoffsetdata(user,offsetvalue)
+      // let json =await fetchoffsetdata(user,offsetvalue)
 
-      setoffsetvalue(offsetvalue+16)
-      setresturentdata((pre)=>[...pre,...json.data.cards])
+      // setoffsetvalue(offsetvalue+16)
+      // setresturentdata((pre)=>[...pre,...json.data.cards])
+
+      setPage(prev=>prev+1)
+      getdata()
    
     }
 

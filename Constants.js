@@ -1,21 +1,26 @@
 
-export const getlocationdata=async (user,type)=>{
+export const getlocationdata=async (page,inputdata)=>{
     // console.log(user);
-    const {lat,lon}=user.coord
+    // const {lat,lon}=user.coord
     
-    // console.log(type);
-    // console.log(user.cod);
-    if(user.cod===200){
+    // // console.log(type);
+    // // console.log(user.cod);
+    // if(user.cod===200){
         
-        let data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lon}&sortBy=${type}&page_type=DESKTOP_WEB_LISTING`);
-        let json = await data.json();
-        return json
-    }
-    else{
-        let data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&sortBy=${type}&page_type=DESKTOP_WEB_LISTING`);
-        let json = await data.json();
-        return json
-    }
+    //     let data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lon}&sortBy=${type}&page_type=DESKTOP_WEB_LISTING`);
+    //     let json = await data.json();
+    //     return json
+    // }
+    // else{
+    //     let data = await fetch(`https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&sortBy=${type}&page_type=DESKTOP_WEB_LISTING`);
+    //     let json = await data.json();
+    //     return json
+    // }
+
+    const Data=await fetch(`https://swiggy-clone-wjqx.onrender.com/api/v1/restaurant?location=${inputdata}&page=${page}`)
+    console.log("hi");
+    const Rescards=await Data.json()
+    return Rescards
     
 }
 export const getparticulardata=async (user,resid)=>{
